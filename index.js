@@ -36,7 +36,6 @@ let createEmployeeRecords = function(array) {
             return createEmployeeRecord(arr)
         })
     }
-    // wont pass with arrow function
 let createTimeInEvent = function(timeStamp) {
 
         let [date, hour] = timeStamp.split(" ")
@@ -48,7 +47,6 @@ let createTimeInEvent = function(timeStamp) {
 
         return this;
     }
-    // wont pass with arrow function
 let createTimeOutEvent = function(timeStamp) {
 
     let [date, hour] = timeStamp.split(" ")
