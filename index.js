@@ -80,6 +80,8 @@ sneaky bug that we'll cover in the next few lessons!
 As a result, the lessons for this function will pass *and* it will be available
 for you to use if you need it!
 */
+
+// This is just to test function expression for lab
 let test = ["Gray", "Worm", "Security", 1]
 let cRecord = createEmployeeRecord(test)
 createTimeInEvent.call(cRecord, "44-03-15 0900")
