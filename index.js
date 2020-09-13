@@ -37,10 +37,19 @@ function hoursWorkedOnDate(dateStr) {
     const timeIn = this.timeInEvents.find(timeInEvent => timeInEvent.date === dateStr)
     const timeOut = this.timeOutEvents.find(timeOutEvent => timeOutEvent.date === dateStr)
 
-    console.log('timeIn:', timeIn)
-    console.log('timeOut:', timeOut)
+    return (timeOut.hour - timeIn.hour) / 100
+}
 
-    return (timeOut - timeIn) / 100
+function wagesEarnedOnDate(dateStr) {
+    return hoursWorkedOnDate.call(this, dateStr) * this.payPerHour
+}
+
+function calculatePayroll(emplsArr) {
+    return emplsArr.map(empl => allWagesFor.call(empl)).reduce((total, emplWages) => total + emplWages)
+}
+
+function findEmployeeByFirstName(emplsArr, firstName) {
+    return emplsArr.find(empl => empl.firstName === firstName)
 }
 
 /*
