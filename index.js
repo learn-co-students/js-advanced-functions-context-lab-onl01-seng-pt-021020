@@ -1,4 +1,47 @@
-/* Your Code Here */
+function createEmployeeRecord(emplDataArr) {
+    return {
+        firstName: emplDataArr[0],
+        familyName: emplDataArr[1],
+        title: emplDataArr[2],
+        payPerHour: emplDataArr[3],
+        timeInEvents: [],
+        timeOutEvents: []
+    }
+}
+
+function createEmployeeRecords(emplsArr) {
+    return emplsArr.map(createEmployeeRecord)
+}
+
+function createTimeInEvent(dateTimeStr) {
+    this.timeInEvents.push({
+        type: 'TimeIn',
+        date: dateTimeStr.split(' ')[0],
+        hour: parseInt(dateTimeStr.split(' ')[1])
+    })
+
+    return this
+}
+
+function createTimeOutEvent(dateTimeStr) {
+    this.timeOutEvents.push({
+        type: 'TimeOut',
+        date: dateTimeStr.split(' ')[0],
+        hour: parseInt(dateTimeStr.split(' ')[1])
+    })
+
+    return this
+}
+
+function hoursWorkedOnDate(dateStr) {
+    const timeIn = this.timeInEvents.find(timeInEvent => timeInEvent.date === dateStr)
+    const timeOut = this.timeOutEvents.find(timeOutEvent => timeOutEvent.date === dateStr)
+
+    console.log('timeIn:', timeIn)
+    console.log('timeOut:', timeOut)
+
+    return (timeOut - timeIn) / 100
+}
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
